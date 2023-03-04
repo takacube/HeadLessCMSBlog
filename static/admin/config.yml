@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: takacube/HeadLessCMSBlog
+  accept_roles:
+    - admin
+    - editor
+  branch: main
+media_folder: static/assets
+public_folder: /assets
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "post"}
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
