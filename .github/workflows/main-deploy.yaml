@@ -1,0 +1,34 @@
+name: Deploy main on push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          rm package-lock.json
+          npm install
+      - name: Build
+        run: |
+          gatsby build
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+        run: |
+          echo "AWS s3 sync"
+          ls
+          aws s3 sync --region ap-northeast-1 public s3://${{ secrets.AWS_S3_BUCKET}} --delete
