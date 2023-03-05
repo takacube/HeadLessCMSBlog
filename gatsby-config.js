@@ -30,6 +30,13 @@ module.exports = {
       },
     },
     {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: `${__dirname}/content/tweet`,
+          name: `tweet`,
+        },
+      },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
