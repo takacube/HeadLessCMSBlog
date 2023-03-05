@@ -1,13 +1,13 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
+import * as React from "react";
+import { Link, graphql, PageProps } from "gatsby";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex: React.FC<any> = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata?.title || `Title`
-    const posts = data.allMarkdownRemark.nodes
+    const posts: any[] = data.allMarkdownRemark.nodes
 
     if (posts.length === 0) {
         return (
@@ -68,7 +68,7 @@ export default BlogIndex
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = () => <Seo title="All posts" description={undefined} children={undefined} />
 
 export const pageQuery = graphql`
     {
