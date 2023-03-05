@@ -1,3 +1,19 @@
+## Try this out
+
+1. clone this repository
+```bash
+git clone git@github.com:takacube/HeadLessCMSBlog.git
+```
+2. run the application locally
+```bash
+npm run develop
+```
+
+3. visit the site
+```
+http://localhost:8000
+```
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
