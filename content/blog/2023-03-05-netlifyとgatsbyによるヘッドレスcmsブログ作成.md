@@ -15,7 +15,8 @@ https://github.com/takacube/HeadLessCMSBlog
 2. Netlifyとは
    ヘッドレスCMSの一つで, Githubなどのリポジトリと連携させてウェブサイトホスティングできるサービスである.
 3. 全体構成
-   ![](https://storage.googleapis.com/zenn-user-upload/3b049e4b86d9-20230304.png)
+   <img src="https://storage.googleapis.com/zenn-user-upload/3b049e4b86d9-20230304.png" width="100%">
+
    以上のような形でNetlify CMS上からコンテンツを編集・更新するとリポジトリのデータが書き換わり, Netlify上でStatic Siteがbuildされた後に, Netlify上にデプロイされ自動でホスティングまでしてくれる.
 4. Gatsby設定
    今回はブログ用のテンプレートを使用するので, 以下のコマンドを実行して大枠を作成する.
@@ -28,7 +29,8 @@ npx gatsby new gatsby-starter-blog https://github.com/gatsbyjs/gatsby-starter-bl
 
 5. Netlify設定
    Netlifyのホームページを開きcreate new Teamでteamを作成したあと,以下の画面から上で作成したgithubリポジトリを選択する.
-   ![](https://storage.googleapis.com/zenn-user-upload/d98598f40d20-20230304.png)
+<img src="https://storage.googleapis.com/zenn-user-upload/d98598f40d20-20230304.png" width="100%">
+
    このimportが終わるとbuildの設定をおこなうことができるので, gatsby buildをコマンドとして設定する. Gatsbyがnode.jsの18.00以上出ないと上手く動かないので, ディレクトリ直下に.nvmrcファイルを作成して
 
 ```
@@ -47,7 +49,8 @@ legacy-peer-deps=true
 を記述しておくことで, peerDependenciesの依存解決をv6以前と同じようにやってくれる.
 
 ここまでで, 実際にNetlifyにホスティングされたサイトを閲覧できるところまでできた.
-![](https://storage.googleapis.com/zenn-user-upload/d9a91fc3edcd-20230304.png)
+
+<img src="https://storage.googleapis.com/zenn-user-upload/d9a91fc3edcd-20230304.png" width="100%">
 この時点では, content/blog配下のmarkdownファイルを追加することで自動でbuildが走り, 本番環境で更新することができる. しかしこれではまだCMSと言えるような段階ではないので管理画面からコンテンツの追加ができるようにする
 
 6. 管理画面からコンテンツを追加・更新できるようにする．
@@ -95,7 +98,7 @@ collections:
 * Netlify上のsite settingでaccess controlをクリック→OAuthの中のinstall providerをクリックして保存したclient secretとclient idを貼り付ける.
 
 こんな感じで BlogサイトURL/adminに入るとログインが行われるようにできる.
-![](https://storage.googleapis.com/zenn-user-upload/dbc0f93a2fda-20230305.png)
+<img src="https://storage.googleapis.com/zenn-user-upload/dbc0f93a2fda-20230305.png" width="100%">
 
 7. Typescriptの導入
    元々とってきたテンプレートがJSになっているのでTypescriptを導入する．
@@ -176,11 +179,10 @@ gatsby clean && gatsby build
 8. 独自でホスティング
    独自でホスティングさせたい場合, 自分でビルドして静的サイトファイルを作成して, S3などに保存させるようなことができる.
    流れ的には以下のようにできそう,
- ![](https://storage.googleapis.com/zenn-user-upload/b2e211c99b01-20230305.png)
-   	
+   <img src="https://storage.googleapis.com/zenn-user-upload/b2e211c99b01-20230305.png" width="100%">
 
 コンテンツを更新すると, githubのリポジトリのcontents/が更新されるので更新が行われるごとにgithubactionsを走らせてS3にデプロイすれば良さそう.
 
 ただわざわざs3でホスティングさせる意味が見出せないので今回はやらない. 他のHeadless CMSで独自でホスティングが必要な場合は
-![](https://storage.googleapis.com/zenn-user-upload/c6fec9b041e3-20230305.png)
+<img src="https://storage.googleapis.com/zenn-user-upload/c6fec9b041e3-20230305.png" width="100%">
 こんな感じに組めば良さそうだなと.
