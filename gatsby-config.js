@@ -59,6 +59,8 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {

@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({
+const BlogPostTemplate: React.FC<any> = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }) => {
@@ -61,12 +61,11 @@ const BlogPostTemplate = ({
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head: React.FC<any> = ({ data: { markdownRemark: post } }) => {
   return (
     <Seo
-      title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
-    />
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt} children={undefined}    />
   )
 }
 
